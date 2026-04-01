@@ -1,17 +1,23 @@
 "use server";
 
-import {NextResponse} from "next/server";
+import {NextRequest, NextResponse} from "next/server";
 
-export async function GET(request: Request, { params } : {params: {id: string}}) {
-    const { id } = await params;
+type RouteParams = {
+    params: Promise<any>
+}
+export async function GET(request: NextRequest, routeParams : RouteParams) {
+    const { id } = await routeParams.params; // Now this matches the type above!
+
     const { searchParams } = new URL(request.url);
+
     const userId = searchParams.get('userId');
     const category = searchParams.get('category');
-    return NextResponse.json({userId: userId, category: category, pId: id});
+
+    return NextResponse.json({ userId, category, pId: id });
 }
 
-export async function POST(request: Request, { params } : {params: {id: string}}) {
-    const { id } = await params;
+export async function POST(request: NextRequest, routeParams : RouteParams) {
+    const { id } = await routeParams.params;
     const body = await request.json();
     const { searchParams } = new URL(request.url);
     const userId = searchParams.get('userId');
