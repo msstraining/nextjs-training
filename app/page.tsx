@@ -8,7 +8,7 @@ export default async function Home() {
     <main className="p-8 font-sans">
       <h1 className="text-2xl font-bold mb-6">Image Upload & Preview</h1>
 
-      <section className="mb-8 p-6 border rounded-lg bg-gray-50">
+      {/*<section className="mb-8 p-6 border rounded-lg bg-gray-50">
         <h2 className="text-lg font-semibold mb-4">Upload New Image</h2>
         <form action={uploadImage} className="flex flex-col gap-4 max-w-sm">
           <input
@@ -30,7 +30,7 @@ export default async function Home() {
             Upload
           </button>
         </form>
-      </section>
+      </section>*/}
 
       <section>
         <h2 className="text-lg font-semibold mb-4">Uploaded Images</h2>

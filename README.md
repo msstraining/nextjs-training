@@ -1,3 +1,23 @@
+## Nextjs file structure
+```
+my-next-app/
+├── app/
+│   ├── api/
+│   │   ├── posts/
+│   │   │   └── route.js        <-- URL: /api/posts (Handles GET/POST)
+│   │   ├── search/
+│   │   │   └── route.js        <-- URL: /api/search?q=query (Query Params)
+│   │   └── users/
+│   │       ├── [id]/
+│   │       │   └── route.js    <-- URL: /api/users/123 (Dynamic Route)
+│   │       └── route.js        <-- URL: /api/users (General User endpoint)
+│   ├── layout.js
+│   └── page.js
+├── public/
+├── package.json
+└── next.config.js
+```
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

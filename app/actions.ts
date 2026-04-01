@@ -39,3 +39,36 @@ export async function getImages(): Promise<Array<string>> {
     return [];
   }
 }
+
+export type LoginState = {
+  success?: boolean;
+  message?: string;
+  errors?: {
+    email?: string[];
+    password?: string[];
+  };
+};
+
+export async function login(prevState: LoginState, formData: FormData): Promise<LoginState> {
+  const email = formData.get('email') as string;
+  const password = formData.get('password') as string;
+
+  const errors: LoginState['errors'] = {};
+  if (!email || !email.includes('@')) {
+    errors.email = ['Please enter a valid email address'];
+  }
+  if (!password || password.length < 6) {
+    errors.password = ['Password must be at least 6 characters'];
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return { success: false, errors };
+  }
+
+  // Mock authentication logic
+  if (email === 'admin@example.com' && password === 'password123') {
+    return { success: true, message: 'Successfully logged in!' };
+  }
+
+  return { success: false, message: 'Invalid email or password' };
+}
