@@ -10,7 +10,13 @@ export default async function Home() {
 
       <section className="mb-8 p-6 border rounded-lg bg-gray-50">
         <h2 className="text-lg font-semibold mb-4">Upload New Image</h2>
-        <form action={uploadImage} className="flex flex-col gap-4 max-w-sm">
+        <form
+          action={async (formData) => {
+            "use server";
+            await uploadImage(formData);
+          }}
+          className="flex flex-col gap-4 max-w-sm"
+        >
           <input
             type="file"
             name="image"

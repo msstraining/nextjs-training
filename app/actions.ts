@@ -6,8 +6,8 @@ import { revalidatePath } from 'next/cache';
 //
 const UPLOAD_DIR = join(process.cwd(), 'public', 'uploads');
 
-export async function uploadImage(formData: FormData | undefined) {
-  const file = formData?.get('image') as File;
+export async function uploadImage(formData: FormData) {
+  const file = formData.get('image') as File;
   if (!file || file.size === 0) {
     throw new Error('No image provided');
   }

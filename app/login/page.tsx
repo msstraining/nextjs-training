@@ -12,9 +12,9 @@ import {
   Alert,
   Link,
   CircularProgress,
+  Avatar,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Avatar from "@mui/material/Avatar";
 
 const initialState: LoginState = {
   success: false,
